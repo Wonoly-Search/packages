@@ -56,7 +56,7 @@ class EmojiPackage {
                             }
                             ${
                                 images_list &&
-                                `<div class="mt-5 flex justify-between">${images_list
+                                `<div style="margin-top: 20px;" class="flex justify-between">${images_list
                                     .map((image, index) =>
                                     image.url && image.vendor && vendorList.includes(image.vendor)
                                         ? `<div key="${index}" class="mx-2 flex items-center justify-center flex-col">

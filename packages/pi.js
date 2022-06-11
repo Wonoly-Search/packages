@@ -42,7 +42,7 @@ class PiPackage {
                     <div class="mb-2 font-bold">
                         ${PI.substring(0, decimal)}
                     </div>
-                    <div class="opacity-70 font-bold">
+                    <div style="opacity: .7;" class="font-bold">
                         Showing first ${decimal} digits of PI
                     </div>
                 `,
