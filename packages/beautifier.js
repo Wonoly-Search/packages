@@ -58,13 +58,13 @@ class BeautifierPackage {
             resolve ({
                 html: `
                     <div id="wonoly__package__beautifier__wrapper" class="flex">
-                        <div class="w-1/2 h-full p-2 border border-black rounded mr-1">
+                        <div class="wonoly__package__beautifier__section h-full p-2 border border-black rounded mr-1">
                             <div class="font-bold text-xl border-b border-black">
                                 ${type}
                             </div>
                             <textarea onChange="prettify(event)" class="resize-none	w-full h-52 focus:outline-0 focus:border-none my-2"></textarea>
                         </div>
-                        <div class="w-1/2 h-full p-2 border border-black rounded ml-1">
+                        <div class="wonoly__package__beautifier__section h-full p-2 border border-black rounded ml-1">
                             <div class="font-bold text-xl border-b border-black">
                                 Beautified
                             </div>
@@ -106,7 +106,18 @@ class BeautifierPackage {
                         : ``}
                     }
                 `,
-                css: ``
+                css: `
+                    #wonoly__package__beautifier__wrapper .wonoly__package__beautifier__section {
+                        width: 100%;
+                    }
+
+                    #wonoly__package__beautifier__wrapper
+                    .wonoly__package__beautifier__section
+                    .wonoly__package__beautifier__output {
+                        resize: none;
+                        height: 14rem;
+                    }
+                `
             })
         })
     }
