@@ -122,7 +122,7 @@ class BeautifierPackage {
                     .wonoly__package__beautifier__section
                     textarea:focus {
                         border: none;
-                        autline: none;
+                        outline: none;
                     }
                 `
             })
