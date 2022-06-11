@@ -41,9 +41,9 @@ class BeautifierPackage {
                 this.type = "html";
                 return true;
             } else if (queries_css.indexOf(query) != -1) {
-                this.type = "html";
+                this.type = "css";
                 return true;
-            } else if (queries_css.indexOf(query) != -1) {
+            } else if (queries_js.indexOf(query) != -1) {
                 this.type = "js";
                 return true;
             }
@@ -98,7 +98,7 @@ class BeautifierPackage {
                             document.getElementById("wonoly__package__beautifier__output").value = html_beautify(value);
                         `
                         : type === "js" ? `
-                            document.getElementById("wonoly__package__beautifier__output").value = js_beautify(value);
+                            document.getElementById("wonoly__package__beautifier__output").value = js_beautifier(value);
                         `
                         : type === "css"? `
                             document.getElementById("wonoly__package__beautifier__output").value = css_beautify(value);
