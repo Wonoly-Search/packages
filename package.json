@@ -1,0 +1,26 @@
+{
+  "name": "packages",
+  "version": "1.0.0",
+  "description": "Wonoly's instant answer packages",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wonoly-Search/packages.git"
+  },
+  "author": "Wonoly Search",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Wonoly-Search/packages/issues"
+  },
+  "homepage": "https://github.com/Wonoly-Search/packages#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "emoji-api": "^2.0.1",
+    "emoji-regex": "^10.1.0",
+    "express": "^4.18.1",
+    "mathjs": "^10.6.1"
+  }
+}
