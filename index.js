@@ -62,6 +62,7 @@ const HTML_TEMPLATE = (query, answer) => `
 
 const PORT = process.env.PORT || 3000;
 const packages = [
+    require(`./packages/beautifier.js`).default,
     require(`./packages/stopwatch.js`).default,
     require(`./packages/math.js`).default,
     require(`./packages/emoji.js`).default,
