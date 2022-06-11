@@ -113,14 +113,14 @@ class BeautifierPackage {
 
                     #wonoly__package__beautifier__wrapper
                     .wonoly__package__beautifier__section
-                    .wonoly__package__beautifier__output {
+                    textarea {
                         resize: none;
                         height: 14rem;
                     }
 
                     #wonoly__package__beautifier__wrapper
                     .wonoly__package__beautifier__section
-                    .wonoly__package__beautifier__output:focus {
+                    textarea:focus {
                         border: none;
                         autline: none;
                     }
