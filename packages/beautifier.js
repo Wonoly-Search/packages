@@ -7,7 +7,7 @@ const queries_html = [
 
     "beautify html",
     "prettify html",
-]
+];
 
 const queries_css = [
     "css beautifier",
@@ -15,7 +15,7 @@ const queries_css = [
 
     "beautify css",
     "prettify css",
-]
+];
 
 const queries_js = [
     "js beautifier",
@@ -28,7 +28,7 @@ const queries_js = [
 
     "beautify javascript",
     "prettify javascript",
-]
+];
 
 class BeautifierPackage {
     type;
@@ -49,13 +49,12 @@ class BeautifierPackage {
             }
         }
         return false;
-
     }
 
     async render(query) {
         let type = this.type;
         return new Promise(function (resolve, reject) {
-            resolve ({
+            resolve({
                 html: `
                     <div id="wonoly__package__beautifier__wrapper" class="flex">
                         <div class="wonoly__package__beautifier__section h-full p-2 border border-black rounded mr-1">
@@ -94,16 +93,21 @@ class BeautifierPackage {
                     function prettify(event) {
                         let value = event.target.value;
 
-                        ${type === "html" ? `
+                        ${
+                            type === "html"
+                                ? `
                             document.getElementById("wonoly__package__beautifier__output").value = html_beautify(value);
                         `
-                        : type === "js" ? `
+                                : type === "js"
+                                ? `
                             document.getElementById("wonoly__package__beautifier__output").value = js_beautifier(value);
                         `
-                        : type === "css"? `
+                                : type === "css"
+                                ? `
                             document.getElementById("wonoly__package__beautifier__output").value = css_beautify(value);
                         `
-                        : ``}
+                                : ``
+                        }
                     }
                 `,
                 css: `
@@ -124,9 +128,9 @@ class BeautifierPackage {
                         border: none;
                         outline: none;
                     }
-                `
-            })
-        })
+                `,
+            });
+        });
     }
 
     info() {
@@ -135,7 +139,7 @@ class BeautifierPackage {
             description: "Beautify HTML, CSS and JavaScript",
             author: "Mauro Baladés",
             version: "1.0.0",
-        }
+        };
     }
 }
 

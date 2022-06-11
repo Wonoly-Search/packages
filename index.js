@@ -1,7 +1,6 @@
-
-var express = require('express')
-var cors = require('cors')
-var app = express()
+var express = require("express");
+var cors = require("cors");
+var app = express();
 
 const HTML_TEMPLATE = (query, answer) => `
     <!DOCTYPE html>
@@ -58,7 +57,7 @@ const HTML_TEMPLATE = (query, answer) => `
         <div class="text-3xl font-bold mt-5 mx-5">Wonoly Package Testing Server</div>
     </body>
     </html>
-`
+`;
 
 const PORT = process.env.PORT || 3000;
 const packages = [
@@ -69,8 +68,8 @@ const packages = [
     require(`./packages/emoji.js`).default,
 ];
 
-app.use(cors())
-app.get('/', async function (req, res) {
+app.use(cors());
+app.get("/", async function (req, res) {
     let query = req.query.q;
 
     if (!query) {
@@ -84,25 +83,25 @@ app.get('/', async function (req, res) {
         if (pkg_instance.accepts(query)) {
             pkg_instance.render(query).then((data) => {
                 res.json({
-                    render: {...data},
-                    info: pkg_instance.info()
+                    render: { ...data },
+                    info: pkg_instance.info(),
                 });
 
-                res.end()
-            })
+                res.end();
+            });
 
             return;
         }
     }
 
-    res.status(404).json({})
-})
+    res.status(404).json({});
+});
 
-app.get('/test', async function (req, res) {
+app.get("/test", async function (req, res) {
     let query = req.query.q;
 
     if (!query) {
-        res.send(HTML_TEMPLATE(query))
+        res.send(HTML_TEMPLATE(query));
         return;
     }
 
@@ -112,18 +111,20 @@ app.get('/test', async function (req, res) {
         if (pkg_instance.accepts(query)) {
             let r = await pkg_instance.render(query);
             if (typeof r !== "undefined") {
-                res.send(HTML_TEMPLATE(query, r))
+                res.send(HTML_TEMPLATE(query, r));
                 res.end();
                 return;
             }
         }
     }
 
-    if (!(res.headersSent)) {
+    if (!res.headersSent) {
         res.send(HTML_TEMPLATE(query));
     }
-})
+});
 
 app.listen(PORT, function () {
-    console.log(`Wonoly's search engine packages API listening on port ${PORT}`)
-})
+    console.log(
+        `Wonoly's search engine packages API listening on port ${PORT}`
+    );
+});

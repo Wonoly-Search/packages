@@ -17,25 +17,30 @@ class StopWatchPackage {
             }
         }
         return false;
-
     }
 
     async render(query) {
         return new Promise(function (resolve, reject) {
-            resolve ({
+            resolve({
                 html: `
                     <div id="wonoly__package__stopwatch__wrapper">
                         <div class="text-3xl font-bold">
                             <span id="wonoly__package__stopwatch__display">0s</span>
                         </div>
                         <div class="border-t border-black pt-5 flex items-center">
-                            <button id="wonoly__package__stopwatch__start" onClick='start()' ${BUTTON_CLASS + '"'}>
+                            <button id="wonoly__package__stopwatch__start" onClick='start()' ${
+                                BUTTON_CLASS + '"'
+                            }>
                                 Start
                             </button>
-                            <button id="wonoly__package__stopwatch__pause" onClick='pause()' ${BUTTON_CLASS + " hidden\""}>
+                            <button id="wonoly__package__stopwatch__pause" onClick='pause()' ${
+                                BUTTON_CLASS + ' hidden"'
+                            }>
                                 Pause
                             </button>
-                            <button onClick='reset()' ${BUTTON_CLASS + " ml-2\""}>
+                            <button onClick='reset()' ${
+                                BUTTON_CLASS + ' ml-2"'
+                            }>
                                 Reset
                             </button>
                         </div>
@@ -101,9 +106,9 @@ class StopWatchPackage {
                         elapsedTime = 0;
                     }
                 `,
-                css: ``
-            })
-        })
+                css: ``,
+            });
+        });
     }
 
     info() {
@@ -112,7 +117,7 @@ class StopWatchPackage {
             description: "Simple, easy to use stopwatch",
             author: "Mauro Baladés",
             version: "1.0.0",
-        }
+        };
     }
 }
 

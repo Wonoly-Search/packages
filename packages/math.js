@@ -8,11 +8,10 @@ const queries = [
     "calcul",
     "calcula",
     "calculat",
-]
+];
 
 class MathPackage {
     accepts(query) {
-
         const regexPhoneNumber =
             /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
         if (query.match(regexPhoneNumber)) {
@@ -41,7 +40,15 @@ class MathPackage {
     async render(query) {
         let expression;
         let answer;
-        if (query === "cal" || query === "calc" || query === "calcu" || query === "calcul" || query === "calcula" || query === "calculat" || query === "calculator") {
+        if (
+            query === "cal" ||
+            query === "calc" ||
+            query === "calcu" ||
+            query === "calcul" ||
+            query === "calcula" ||
+            query === "calculat" ||
+            query === "calculator"
+        ) {
             expression = 0;
             answer = "";
         } else {
@@ -58,7 +65,7 @@ class MathPackage {
         }
 
         return new Promise(function (resolve, reject) {
-            return resolve ({
+            return resolve({
                 html: `
                     <div id="wonoly__package__maths__wrapper">
                         <div class="w-full border border-black rounded font-bold flex items-end" style="flex-direction: column; font-size: 20px;" id="wonoly__package__math__output">
@@ -139,7 +146,9 @@ class MathPackage {
                             this.buttons_per_row = 8;
 
                             this.data = {
-                                operation: [ ${expression ? `"${expression}"` : ``} ],
+                                operation: [ ${
+                                    expression ? `"${expression}"` : ``
+                                } ],
                                 formula: [ ${answer ? `"${answer}"` : ``} ]
                             }
 
@@ -580,18 +589,19 @@ class MathPackage {
                     #wonoly__package__maths__wrapper .result {
                         padding: 0 10px 10px 10px;
                     }
-                `
-            })
-        })
+                `,
+            });
+        });
     }
 
     info() {
         return {
             title: "Calculator",
-            description: "A pretty simple calculator, but it's nicely designed and easy to use. You can add, subtract, multiply, and divide (of course), but there are also basic trigonometric, logarithmic, and exponential functions.",
+            description:
+                "A pretty simple calculator, but it's nicely designed and easy to use. You can add, subtract, multiply, and divide (of course), but there are also basic trigonometric, logarithmic, and exponential functions.",
             author: "Mauro Baladés",
             version: "1.0.1",
-        }
+        };
     }
 }
 
