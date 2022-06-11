@@ -11,7 +11,7 @@ const packages = [
 ];
 
 app.use(cors())
-app.get('/', function (req, res) {
+app.get('/', async function (req, res) {
     let query = req.query.q;
 
     if (!query) {
@@ -19,25 +19,24 @@ app.get('/', function (req, res) {
         return;
     }
 
-    (async function() {
-        for (const pkg of packages) {
-            const pkg_instance = new pkg();
+    for (const pkg of packages) {
+        const pkg_instance = new pkg();
 
-            if (pkg_instance.accepts(query)) {
-                pkg_instance.render(query).then((data) => {
-                    res.json({
-                        render: {...data},
-                        info: pkg_instance.info()
-                    });
+        if (pkg_instance.accepts(query)) {
+            pkg_instance.render(query).then((data) => {
+                res.json({
+                    render: {...data},
+                    info: pkg_instance.info()
+                });
 
-                    res.end()
-                })
-                return;
-            }
+                res.end()
+            })
+
+            return;
         }
+    }
 
-        res.status(404)
-    })()
+    res.status(404).json({})
 })
 
 app.listen(PORT, function () {
