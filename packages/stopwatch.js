@@ -1,5 +1,3 @@
-const emojiRegex = require('emoji-regex');
-
 // note: this button class does not have an ending ".
 // this is because we need to apply styles to cerain buttons
 const BUTTON_CLASS = `style="width: -webkit-fill-available !important;" class="flex items-center justify-center button__primary border border-black hover:border-black hover:bg-gray-50 rounded px-4 py-2 mr-2 mt-2 cursor-pointer ml-[-0.3rem] flex font-bold text-black items-center justify-between`;
